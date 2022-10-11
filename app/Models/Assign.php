@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Assign extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['ticket_id', 'division_id'];
+
+    public function division()
+    {
+        return $this->hasMany(Division::class);
+    }
 }

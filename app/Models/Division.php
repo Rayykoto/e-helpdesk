@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Division extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['division_name', 'code'];
 }

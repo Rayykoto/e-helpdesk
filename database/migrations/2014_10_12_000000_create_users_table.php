@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('division_id');
+            $table->unsignedBigInteger('division_id')->nullable();
             $table->string('fullname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -23,7 +23,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             
-            // $table->foreign('division_id')->references('id')->on('divisions');
         });
     }
 

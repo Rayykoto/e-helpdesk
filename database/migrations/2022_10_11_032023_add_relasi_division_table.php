@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('division_id')->references('id')->on('divisions');
+            // $table->foreign('division_id')->references('id')->on('divisions');
         });
     }
 
