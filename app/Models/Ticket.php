@@ -12,7 +12,7 @@ class Ticket extends Model
 
     protected $fillable = ['user_id', 'ticket_number', 'customer_id', 'level_id', 'assign_id', 'subject', 'description', 'attachment'];
 
-    public function ticket_details() 
+    public function ticket_detail() 
     {
         return $this->belongsTo(Ticket_detail::class);
     }
