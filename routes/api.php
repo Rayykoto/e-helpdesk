@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('android')->group(function () {
+    
+    Route::post('/login', [App\Http\Controllers\Api\Android\LoginController::class, 'index'], ['as' => 'android']);
+
+    Route::group(['middleware' => 'auth:api_user'], function() {
+
+        Route::get('/user', [App\Http\Controllers\Api\Android\LoginController::class, 'getUser'], ['as' => 'android']);
+
+        Route::get('/refresh', [App\Http\Controllers\Api\Android\LoginController::class, 'refreshToken'], ['as' => 'android']);
+
+        Route::post('/logout', [App\Http\Controllers\Api\Android\LoginController::class, 'logout'], ['as' => 'android']);
+    });
+});
+
+
